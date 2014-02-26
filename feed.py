@@ -23,13 +23,19 @@ def extract_entry(entry):
 def write_to_file(filepath, entries, tags):
   data = {'entries': entries, 'tags': tags}
   with open(filepath, 'w') as datafile:
-    json.dump(
-      data, datafile,
+    json_str = json.dumps(
+      data,
       sort_keys=True, indent=4,
       separators=(',', ': ')
     )
 
+    datafile.write("var blog_data = ")
+    datafile.write(json_str)
+
+print "Fetching feed..."
 feed_data = feedparser.parse(FEED_URL)
+
+print "Extracting data..."
 feed_entries = feed_data['entries']
 feed_tags = feed_data['feed']['tags']
 
@@ -39,4 +45,5 @@ tags = map(extract_tag, feed_tags)
 print "Posts: {}".format(len(entries))
 print "Tags: {}".format(len(tags))
 
+print "Writing to file: {}".format(WRITE_FILE)
 write_to_file(WRITE_FILE, entries, tags)
