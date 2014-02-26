@@ -60,8 +60,14 @@ force = vis.add(pv.Layout.Force)
   .springLength 330
 
 force.link.add pv.Line
+force.label.add(pv.Label)
+  .visible(-> true)
+  .font("20px sans-serif")
+  .textBaseline("bottom")
+  .textAlign("right")
 
-force.node.add(pv.Dot).size((d) -> (d.group * 40 + 40) * Math.pow(@scale, -1.5))
+force.node.add(pv.Dot)
+  .size((d) -> (d.group * 40 + 40) * Math.pow(@scale, -1.5))
   .fillStyle((d) -> (if d.fix then "brown" else colors(d.group)))
   .strokeStyle(-> @fillStyle().darker())
   .lineWidth(2)
