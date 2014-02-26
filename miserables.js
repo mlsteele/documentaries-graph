@@ -9,7 +9,7 @@
 // The group labels were transcribed from "Finding and evaluating community
 // structure in networks" by M. E. J. Newman and M. Girvan.
 
-var miserables = {
+var graph_data = {
   nodes:[
     {nodeName:"Myriel", group:1},
     {nodeName:"Napoleon", group:1},

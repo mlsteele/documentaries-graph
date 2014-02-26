@@ -26,8 +26,8 @@ var vis = new pv.Panel()
     .event("mousewheel", pv.Behavior.zoom());
 
 var force = vis.add(pv.Layout.Force)
-    .nodes(miserables.nodes)
-    .links(miserables.links);
+    .nodes(graph_data.nodes)
+    .links(graph_data.links);
 
 force.link.add(pv.Line);
 
