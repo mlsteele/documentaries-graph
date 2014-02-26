@@ -1,4 +1,4 @@
-{
+var blog_data = {
     "entries": [
         {
             "author": "Brandon Vasquez",
