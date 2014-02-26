@@ -34,13 +34,12 @@ for node_id_a in [0...graph_data.nodes.length]
     postnames_a = (post.title for post in posts_a)
     postnames_b = (post.title for post in posts_b)
     common_postnames = intersection postnames_a, postnames_b
-    # console.log "#{node_a.tag}<->#{node_b.tag}: #{common_postnames.length}"
 
     if common_postnames.length > 0
       graph_data.links.push
         source: node_id_a
         target: node_id_b
-        value: common_postnames.length
+        value: common_postnames.length * 10
 
 
 # render graph_data
@@ -58,13 +57,15 @@ vis = new pv.Panel()
 force = vis.add(pv.Layout.Force)
   .nodes(graph_data.nodes)
   .links(graph_data.links)
+  .springLength 330
 
 force.link.add pv.Line
 
-force.node.add(pv.Dot).size((d) -> (d.linkDegree + 4) * Math.pow(@scale, -1.5))
+force.node.add(pv.Dot).size((d) -> (d.group * 40 + 40) * Math.pow(@scale, -1.5))
   .fillStyle((d) -> (if d.fix then "brown" else colors(d.group)))
   .strokeStyle(-> @fillStyle().darker())
-  .lineWidth(1).title((d) -> d.nodeName)
+  .lineWidth(2)
+  .title((d) -> d.nodeName)
   .event("mousedown", pv.Behavior.drag())
   .event("drag", force)
 
