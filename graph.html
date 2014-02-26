@@ -1,17 +1,49 @@
 <html>
   <head>
     <title>Force-Directed Layout</title>
-    <script type="text/javascript" src="vendor/coffee-script.js"></script>
-    <script type="text/javascript" src="vendor/mbostock-protovis-1a61bac/protovis.js"></script>
-    <script type="text/javascript" src="blogdata.js"></script>
+    <script src="vendor/coffee-script.js"></script>
+    <script src="vendor/mbostock-protovis-1a61bac/protovis.js"></script>
+    <script src="blogdata.js"></script>
 
     <style type="text/css">
       body {
         margin: 0;
+        font-family: Verdana;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .tag-key {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        background-color: white;
+        padding: 15px;
+        box-shadow: 0px 0px 5px #ccc;
+        line-height: 1.5em;
       }
     </style>
   </head>
   <body>
+    <h1>Definitions of a Documentary</h1>
+    <p class="tag-key">
+      <b>Art vs Reality</b>: Depict of reality without artistic flourish.<br>
+      <b>Factual</b>: Docs must be factual.<br>
+      <b>Social/Political</b>: Offer a soc/pol angle.<br>
+      <b>Contradiction</b>: Contradictory definitions.<br>
+      <b>Stories</b>: Tell a story.<br>
+      <b>Technology</b>: Use particular tech.<br>
+      <b>A Message</b>: Convey a message.<br>
+      <b>Modes</b>: Docs use defined modes.<br>
+      <b>Strict definition</b>: Strictly defined.<br>
+      <b>Idealism</b>: Docs are an abstract ideal.<br>
+      <b>Interpretation</b>: Eye of the beholder / author.<br>
+      <b>Loose Definition</b>: Not well defined.<br>
+      <b>Not Deliberate</b>: Exploration without angled intention.<br>
+      <b>Observation</b>: Observe without interrupting.<br>
+    </p>
     <script type="text/coffeescript" src="vis.coffee"></script>
   </body>
 </html>
